@@ -1,0 +1,53 @@
+/* Add this to your existing CSS file */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light mode track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0078c1; /* Light mode thumb */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #005b96;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #0a2540; /* Dark mode track */
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #3b82f6; /* Dark mode thumb, biru Tailwind */
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #2563eb; /* Hover lebih gelap di dark mode */
+}

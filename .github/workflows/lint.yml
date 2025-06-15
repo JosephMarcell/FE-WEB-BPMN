@@ -1,0 +1,41 @@
+name: Code Check
+on:
+  push:
+    branches:
+      - main
+  pull_request: {}
+
+concurrency:
+  group: ${{ github.job }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: ⬣ ESLint, ʦ TypeScript, 💅 Prettier, and 🃏 Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v2
+
+      # Removed Setup pnpm step
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: 📥 Download deps
+        run: npm ci
+
+      - name: 🔬 Lint
+        run: npm run lint:strict
+
+      - name: 🔎 Type check
+        run: npm run typecheck
+
+      - name: 💅 Prettier check
+        run: npm run format:check
+
+      - name: 🃏 Run jest
+        run: npm test

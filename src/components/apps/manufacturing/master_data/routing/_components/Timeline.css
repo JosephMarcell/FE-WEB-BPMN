@@ -1,0 +1,78 @@
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin: 20px 0;
+}
+
+.timeline-group {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 10px 0;
+}
+
+.timeline-item {
+  display: flex;
+  position: relative;
+  z-index: 1; /* Ensure the items are on top */
+}
+
+.timeline-item-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  width: 200px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 0 10px;
+}
+
+.timeline-item-content .order-number {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.timeline-item-content .operation-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.timeline-item-content p {
+  margin: 5px 0;
+}
+
+.timeline-item-content .circle {
+  width: 12px;
+  height: 12px;
+  background-color: #007bff;
+  border-radius: 50%;
+  position: absolute;
+  left: -6px;
+  top: 25px;
+}
+
+.horizontal-line {
+  width: 20px;
+  height: 2px;
+  background-color: #007bff;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.vertical-line {
+  width: 2px;
+  height: 100%;
+  background-color: #007bff;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+}

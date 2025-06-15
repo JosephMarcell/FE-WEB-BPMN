@@ -1,0 +1,50 @@
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0078c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #005b96;
+}
+
+/* Login form component styles - add these to your ComponentsAuthLoginForm styles */
+.form-input {
+  @apply w-full rounded-md border border-[#e0e0e0] bg-white px-4 py-3 text-base font-medium text-[#6B7280] outline-none focus:border-[#0078C1] focus:shadow-md;
+}
+
+.login-button {
+  @apply w-full rounded-md bg-gradient-to-r from-[#0078C1] to-[#00a1ff] px-5 py-3 text-base font-semibold text-white transition duration-300 ease-in-out hover:shadow-lg focus:outline-none;
+}
+
+.forgot-password {
+  @apply text-right text-sm font-medium text-[#0078C1] transition duration-300 hover:text-[#00a1ff];
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="15px" viewBox="0 0 21 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="red-gradient">
+            <stop stop-color="#FF0000" offset="0%"></stop>
+            <stop stop-color="#D50000" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="white-gradient">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#F0F0F0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <!-- Top half: Red -->
+        <rect fill="url(#red-gradient)" x="0" y="0" width="21" height="7.5"></rect>
+        <!-- Bottom half: White -->
+        <rect fill="url(#white-gradient)" x="0" y="7.5" width="21" height="7.5"></rect>
+    </g>
+</svg>
