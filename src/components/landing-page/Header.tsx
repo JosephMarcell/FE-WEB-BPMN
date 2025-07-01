@@ -36,7 +36,7 @@ const Header = () => {
     dispatch(toggleTheme(isDarkMode ? 'light' : 'dark'));
   };
 
-  const navItems = ['hero', 'features', 'how'];
+  const navItems = ['hero', 'Multiformat Parser', 'features', 'how', 'API', 'FAQ'];
 
   const changeLanguage = (lang: string) => {
     i18n.changeLanguage(lang);
@@ -48,10 +48,10 @@ const Header = () => {
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled
           ? isDarkMode
-            ? 'bg-gradient-to-r from-gray-900 via-gray-900 to-gray-800 py-2 shadow-md backdrop-blur-sm'
+            ? 'bg-gradient-to-r from-darkmode via-darkmode to-darkmode py-2 shadow-md backdrop-blur-sm'
             : 'bg-gradient-to-r from-white via-white to-[#E6F4FB] py-2 shadow-md backdrop-blur-sm'
           : isDarkMode
-          ? 'bg-gradient-to-r from-gray-900 via-gray-900 to-gray-800 py-4'
+          ? 'bg-gradient-to-r from-darkmode via-darkmode to-darkmode py-4'
           : 'bg-gradient-to-r from-white via-white to-[#E6F4FB] py-4'
       }`}
     >
@@ -65,50 +65,61 @@ const Header = () => {
         >
           <Link href='/' className='flex items-center'>
             <Image
-              src={
-                isDarkMode
-                  ? '/assets/images/lecsens-logo.png'
-                  : '/assets/images/lecsens-logo.png'
-              }
-              alt='LecSens Logo'
-              width={120}
-              height={40}
-              className='h-8 w-auto'
-            />
-            <span
-              className={`ml-2 rounded-full px-2 py-1 text-xs ${
-                isDarkMode
-                  ? 'bg-[#00a1ff] text-gray-900'
-                  : 'bg-[#0078C1] text-white'
-              }`}
-            >
-              IoT
-            </span>
+  src={isDarkMode ? '/assets/images/new-logo-bpmn.png' 
+                : '/assets/images/new-logo-bpmn.png'}
+  alt='LecSens Logo'
+  width={120} // perbesar width
+  height={40} // perbesar height
+  className='h-13 w-auto'
+/>
+            
           </Link>
         </motion.div>
 
         {/* Desktop Navigation */}
         <nav className='hidden gap-8 md:flex'>
           {navItems.map((item, index) => (
-            <motion.a
-              key={item}
-              href={`#${item}`}
-              className={`group relative text-sm font-medium ${
-                isDarkMode
-                  ? 'text-gray-300 hover:text-[#00a1ff]'
-                  : 'text-gray-700 hover:text-[#0078C1]'
-              }`}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 + index * 0.1 }}
-            >
-              {t(item)}
-              <span
-                className={`absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full ${
-                  isDarkMode ? 'bg-[#00a1ff]' : 'bg-[#0078C1]'
+            item === 'Multiformat Parser' ? (
+              <motion.a
+                key={item}
+                href={'/multiformat-parser'}
+                className={`group relative text-sm font-medium ${
+                  isDarkMode
+                    ? 'text-gray-300 hover:text-[#00a1ff]'
+                    : 'text-gray-700 hover:text-[#0078C1]'
                 }`}
-              ></span>
-            </motion.a>
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + index * 0.1 }}
+              >
+                {t(item)}
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full ${
+                    isDarkMode ? 'bg-[#00a1ff]' : 'bg-[#0078C1]'
+                  }`}
+                ></span>
+              </motion.a>
+            ) : (
+              <motion.a
+                key={item}
+                href={`#${item}`}
+                className={`group relative text-sm font-medium ${
+                  isDarkMode
+                    ? 'text-gray-300 hover:text-[#00a1ff]'
+                    : 'text-gray-700 hover:text-[#0078C1]'
+                }`}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + index * 0.1 }}
+              >
+                {t(item)}
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full ${
+                    isDarkMode ? 'bg-[#00a1ff]' : 'bg-[#0078C1]'
+                  }`}
+                ></span>
+              </motion.a>
+            )
           ))}
         </nav>
 
@@ -227,7 +238,7 @@ const Header = () => {
               )}
             </button>
 
-            <button
+            {/*<button
               className={`font-medium ${
                 isDarkMode
                   ? 'text-[#00a1ff] hover:text-[#00b4ff]'
@@ -247,7 +258,7 @@ const Header = () => {
               } shadow-md`}
             >
               {t('register')}
-            </button>
+            </button> */ }
           </div>
 
           {/* Mobile Menu Button */}
@@ -361,18 +372,33 @@ const Header = () => {
 
               {/* Navigation Links */}
               {navItems.map(item => (
-                <a
-                  key={item}
-                  href={`#${item}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block rounded-lg px-4 py-3 font-medium transition-colors duration-200 ${
-                    isDarkMode
-                      ? 'text-gray-300 hover:bg-gray-700 hover:text-[#00a1ff]'
-                      : 'text-gray-800 hover:bg-[#0078C1]/10 hover:text-[#0078C1]'
-                  }`}
-                >
-                  {t(item)}
-                </a>
+                item === 'Multiformat Parser' ? (
+                  <a
+                    key={item}
+                    href={'/multiformat-parser'}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`block rounded-lg px-4 py-3 font-medium transition-colors duration-200 ${
+                      isDarkMode
+                        ? 'text-gray-300 hover:bg-gray-700 hover:text-[#00a1ff]'
+                        : 'text-gray-800 hover:bg-[#0078C1]/10 hover:text-[#0078C1]'
+                    }`}
+                  >
+                    {t(item)}
+                  </a>
+                ) : (
+                  <a
+                    key={item}
+                    href={`#${item}`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`block rounded-lg px-4 py-3 font-medium transition-colors duration-200 ${
+                      isDarkMode
+                        ? 'text-gray-300 hover:bg-gray-700 hover:text-[#00a1ff]'
+                        : 'text-gray-800 hover:bg-[#0078C1]/10 hover:text-[#0078C1]'
+                    }`}
+                  >
+                    {t(item)}
+                  </a>
+                )
               ))}
 
               {/* Login Button */}

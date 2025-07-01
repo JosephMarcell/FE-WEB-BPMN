@@ -23,9 +23,17 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#4361ee',
+          DEFAULT: '#FF7518',
           light: '#eaf1ff',
           'dark-light': 'rgba(67,97,238,.15)',
+          dark: '#1A9286'
+        },
+        darkmode: {
+          DEFAULT: '#993D00',
+          secondary:'#032F12',
+          text:'#77DD77', 
+          light: '#eaeaec',
+          'dark-light': 'rgba(59,63,92,.15)'
         },
         secondary: {
           DEFAULT: '#805dca',
@@ -57,6 +65,7 @@ export default {
           light: '#eaeaec',
           'dark-light': 'rgba(59,63,92,.15)',
         },
+        
         black: {
           DEFAULT: '#0e1726',
           light: '#e3e4eb',

@@ -7,7 +7,9 @@ export default function middleware(request: NextRequest) {
 
   // Definisikan path yang dapat diakses publik
   const publicPaths = [
+    '/',
     '/landing-page',
+    '/multiformat-parser',
     '/auth/verify-account',
     '/auth/reset-password',
   ];

@@ -60,7 +60,7 @@ const HowItWorksSection = () => {
   };
 
   return (
-    <section className='how-it-works-section relative overflow-hidden bg-white px-6 py-20 text-[#030303] dark:bg-[#0a2540] dark:text-white'>
+    <section className='how-it-works-section relative overflow-hidden bg-white px-6 py-20 text-[#030303] dark:bg-darkmode dark:text-white'>
       {/* Background elements */}
       <div className='pointer-events-none absolute inset-0 z-0'>
         <div className='absolute -left-24 -top-24 h-80 w-80 rounded-full bg-[#0078C1] opacity-10 opacity-10 dark:bg-[#112e52]'></div>
@@ -78,12 +78,12 @@ const HowItWorksSection = () => {
         >
           <h2 className='mb-4 text-3xl font-bold text-gray-800 md:text-4xl dark:text-white'>
             {t('how_title')}{' '}
-            <span className='text-[#0078C1] dark:text-[#00a1ff]'>LecSens</span>
+            <span className='text-primary dark:text-primary'>BPMN</span>
           </h2>
           <p className='mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-300'>
             {t('how_subtitle')}
-          </p>
-          <div className='mx-auto mt-6 h-1.5 w-20 rounded-full bg-[#0078C1] dark:bg-[#00a1ff]'></div>
+          </p> {/* Horizontal slider */}
+          <div className='mx-auto mt-6 h-1.5 w-20 rounded-full bg-primary dark:bg-primary'></div>
         </motion.div>
 
         {/* Steps timeline */}
@@ -107,7 +107,7 @@ const HowItWorksSection = () => {
               >
                 {/* Step card */}
                 <div
-                  className={`mx-auto flex max-w-5xl flex-col items-center gap-6 rounded-xl border border-gray-100 bg-gray-50/80 p-5 shadow-sm backdrop-blur-sm transition-all duration-300 hover:shadow-md md:flex-row dark:border-[#00a1ff] dark:bg-[#112e52]/80 ${
+                  className={`mx-auto flex max-w-5xl flex-col items-center gap-6 rounded-xl border border-gray-100 bg-gray-50/80 p-5 shadow-sm backdrop-blur-sm transition-all duration-300 hover:shadow-md md:flex-row dark:border-white dark:bg-darkmode-secondary/80 ${
                     index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                   }`}
                 >
@@ -118,7 +118,7 @@ const HowItWorksSection = () => {
 
                   {/* Image/Icon container */}
                   <div className='w-full flex-shrink-0 md:w-2/5'>
-                    <div className='relative flex h-48 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-[#0078C1]/10 to-[#00a1ff]/10 md:h-64 dark:from-[#0a2540]/10 dark:to-[#112e52]/10'>
+                    <div className='relative flex h-48 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-primary/10 to-[#00a1ff]/10 md:h-64 dark:from-[#0a2540]/10 dark:to-[#112e52]/10'>
                       {step.image ? (
                         <Image
                           src={step.image}
@@ -137,7 +137,7 @@ const HowItWorksSection = () => {
                   <div className='w-full md:w-2/3'>
                     {/* Number indicator (desktop) */}
                     <div className='mb-4 hidden items-center md:flex'>
-                      <div className='flex h-12 w-12 items-center justify-center rounded-full bg-[#0078C1] text-xl font-bold text-white'>
+                      <div className='flex h-12 w-12 items-center justify-center rounded-full bg-primary text-xl font-bold text-white'>
                         {index + 1}
                       </div>
                       <div

@@ -1,0 +1,8 @@
+/* Grid kotak-kotak untuk canvas BPMN */
+.bpmn-canvas-grid {
+  background-color: #f9fafb;
+  background-image:
+    linear-gradient(to right, hsl(0, 0%, 0%) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(0, 0%, 0%) 1px, transparent 1px);
+  background-size: 20px 20px;
+} 

@@ -67,7 +67,7 @@ const Footer = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className='rounded-full bg-[#0078C1] px-8 py-4 font-bold text-white shadow-xl transition-all hover:shadow-2xl'
+            className='rounded-full bg-primary px-8 py-4 font-bold text-white shadow-xl transition-all hover:shadow-2xl'
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -93,21 +93,18 @@ const Footer = () => {
             <motion.div variants={item}>
               <h4 className='flex items-center text-xl font-bold text-[#0078C1] dark:text-[#00a1ff]'>
                 <Image
-                  src='/assets/images/lecsens-logo.png'
+                  src='/assets/images/logo_title_new_bm.png'
                   alt='LecSens Logo'
                   width={120}
                   height={30}
                 />
-                <span className='ml-2 rounded-full bg-[#0078C1] px-2 py-1 text-xs text-white'>
-                  IoT
-                </span>
               </h4>
             </motion.div>
             <motion.p
               variants={item}
               className='text-sm text-gray-600 dark:text-gray-300'
             >
-              {t('footer_description')}
+              {t('lorem_ipsum_parag')}
             </motion.p>
             <motion.div variants={item} className='flex gap-4'>
               {['twitter', 'facebook', 'linkedin', 'instagram'].map(social => (
@@ -138,7 +135,7 @@ const Footer = () => {
               {t('navigation')}
             </motion.h4>
             <motion.ul variants={container} className='space-y-2'>
-              {['hero', 'features', 'how'].map(link => (
+              {['hero', 'Upload', 'features', 'how', 'API', 'FAQ'].map(link => (
                 <motion.li key={link} variants={item}>
                   <a
                     href={`#${link}`}
@@ -167,7 +164,7 @@ const Footer = () => {
               variants={item}
               className='text-sm text-gray-600 dark:text-gray-300'
             >
-              {t('email')}: info@lecsens.com
+              {t('email')}: info@BPMN.com
             </motion.p>
             <motion.p
               variants={item}
@@ -186,11 +183,11 @@ const Footer = () => {
                 <input
                   type='email'
                   placeholder={t('enter_your_email')}
-                  className='flex-1 rounded-full border border-gray-300 px-4 py-2 transition-all focus:border-[#0078C1] focus:outline-none focus:ring-1 focus:ring-[#0078C1]/50 dark:border-[#00a1ff] dark:bg-[#112e52] dark:text-white'
+                  className='flex-1 rounded-full border border-gray-300 px-4 py-2 transition-all focus:border-[#0078C1] focus:outline-none focus:ring-1 focus:ring-[#0078C1]/50 dark:border-primary dark:bg-darkmode dark:text-white'
                 />
                 <button
                   type='submit'
-                  className='rounded-full bg-[#0078C1] px-6 py-2 text-white shadow-md transition-all duration-300 hover:bg-[#005b96] hover:shadow-lg dark:bg-[#00a1ff]'
+                  className='rounded-full bg-primary px-6 py-2 text-white shadow-md transition-all duration-300 hover:bg-primary hover:shadow-lg dark:bg-darkmode'
                 >
                   {t('subscribe')}
                 </button>

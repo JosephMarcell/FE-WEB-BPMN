@@ -14,6 +14,16 @@ import { useGetAdminTenant } from '@/app/api/hooks/tenant/useGetAdminTenant';
 import { useGetAdminTenantUsers } from '@/app/api/hooks/tenant/useGetAdminTenantUsers';
 import { useRemoveTenantUser } from '@/app/api/hooks/tenant/useRemoveTenantUser';
 
+// Tipe data user
+type UserRow = {
+  id: string;
+  username: string;
+  email: string;
+  user_role: string;
+  is_verified: boolean;
+  [key: string]: unknown;
+};
+
 const MyTenantPage = () => {
   const router = useRouter();
   const userRole = Cookies.get('userRole');
@@ -49,13 +59,7 @@ const MyTenantPage = () => {
 
   // Handle removing a user from tenant
   const handleRemoveUser = async (userId: string | number) => {
-    console.log('=== HANDLE REMOVE USER ===');
-    console.log('Raw userId received:', userId);
-    console.log('Type:', typeof userId);
-
-    // Pastikan userId adalah string (UUID)
     const userIdString = String(userId);
-    console.log('Converted to string:', userIdString);
 
     try {
       const result = await Swal.fire({
@@ -68,9 +72,6 @@ const MyTenantPage = () => {
       });
 
       if (result.isConfirmed) {
-        console.log('=== CALLING API ===');
-        console.log('Calling removeTenantUser with:', userIdString);
-
         await removeTenantUser(userIdString);
 
         Swal.fire({
@@ -81,20 +82,21 @@ const MyTenantPage = () => {
           refetchUsers();
         });
       }
-    } catch (error: any) {
-      console.error('=== ERROR REMOVING USER ===');
-      console.error('Full error object:', error);
-      console.error('Error message:', error.message);
-      console.error('Error response:', error.response);
-      console.error('Error response status:', error.response?.status);
-      console.error('Error response data:', error.response?.data);
-
+    } catch (error) {
       let errorMessage = 'Failed to remove user from tenant';
-      if (error.response?.data?.error) {
-        errorMessage = error.response.data.error;
-      } else if (error.response?.data?.message) {
-        errorMessage = error.response.data.message;
-      } else if (error.message) {
+      if (
+        typeof error === 'object' &&
+        error !== null &&
+        'response' in error &&
+        typeof (error as { response?: unknown }).response === 'object'
+      ) {
+        const errResp = (error as { response?: { data?: { error?: string; message?: string } } }).response;
+        if (errResp?.data?.error) {
+          errorMessage = errResp.data.error;
+        } else if (errResp?.data?.message) {
+          errorMessage = errResp.data.message;
+        }
+      } else if (error instanceof Error) {
         errorMessage = error.message;
       }
 
@@ -136,7 +138,7 @@ const MyTenantPage = () => {
     {
       accessor: 'user_role',
       title: 'Role',
-      render: (row: any) => {
+      render: (row: UserRow) => {
         const getRoleBadgeColor = (user_role: string): string => {
           switch (user_role?.toUpperCase()) {
             case 'SUPERADMIN':
@@ -162,7 +164,7 @@ const MyTenantPage = () => {
     {
       accessor: 'is_verified',
       title: 'Status',
-      render: (row: any) => (
+      render: (row: UserRow) => (
         <span
           className={`badge ${row.is_verified ? 'bg-success' : 'bg-danger'}`}
         >
@@ -292,7 +294,6 @@ const MyTenantPage = () => {
                 hide_columns={['id']}
                 action='RD' // Read and Delete actions
                 deleteFunc={id => {
-                  console.log('RenderHRMDataTable deleteFunc called with:', id);
                   handleRemoveUser(id);
                 }}
               />

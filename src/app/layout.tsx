@@ -3,6 +3,9 @@ import { Inter } from 'next/font/google';
 import * as React from 'react';
 
 import 'react-perfect-scrollbar/dist/css/styles.css';
+import 'bpmn-js/dist/assets/diagram-js.css';
+import 'bpmn-js/dist/assets/bpmn-font/css/bpmn.css';
+import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
 
 import ProviderComponent from '@/components/layouts/provider-component';
 
@@ -18,7 +21,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 
   icons: {
-    icon: '/assets/images/logo.svg',
+    icon: '/assets/images/logo_new.svg',
     shortcut: '/favicon/favicon-16x16.png',
     apple: '/favicon/apple-touch-icon.png',
   },

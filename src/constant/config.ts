@@ -1,5 +1,5 @@
 export const siteConfig = {
-  title: 'Drone for Marine Environment Quality',
+  title: 'BPMN Framework Tools',
   description:
     'System information that utilize drone to help Konservasi Laut in managing the sea water sample',
   /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
